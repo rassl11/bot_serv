@@ -1,10 +1,8 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters,CallbackQueryHandler
-from const import TOKEN
-from func import *
-
-u=Updater(token=TOKEN, workers=4)
-d=u.dispatcher
-d.add_handler(CommandHandler('start',callback=start, run_async=True))
-d.add_handler(MessageHandler(Filters.text,callback=text_answer))
-d.add_handler(MessageHandler(Filters.contact,callback=get_contact))
-u.start_polling()
+import sqlite3
+conn =sqlite3.connect('identifier.sqlite')
+cur = conn.cursor()
+cur.execute('''
+UPDATE Users
+SET TABLE_NUMB = 100
+WHERE 
+''')
